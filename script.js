@@ -1,12 +1,18 @@
-// Very basic example - you'd likely add more interactivity
-console.log("Blog script loaded.");
+// JavaScript for Accordion functionality
+var acc = document.getElementsByClassName("accordion");
+var i;
 
-// Example: Add a class to the header on scroll (for a sticky header effect)
-window.addEventListener('scroll', function() {
-  const header = document.querySelector('header');
-  if (window.scrollY > 50) {
-    header.classList.add('sticky');
-  } else {
-    header.classList.remove('sticky');
-  }
-});
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    // Toggle between adding and removing the "active" class
+    this.classList.toggle("active");
+
+    // Toggle between hiding and showing the active panel
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
