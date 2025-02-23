@@ -1,0 +1,185 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  width: 80%; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+header nav li {
+  margin-left: 20px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Main Content */
+main {
+  display: flex;
+  flex-direction: column; /* Stack blog posts vertically */
+  align-items: stretch; /* Stretch items to full width */
+  padding: 20px 0;
+}
+
+.blog-post {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.blog-post h2 a {
+  color: #333;
+  text-decoration: none;
+}
+
+.post-meta {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;  /* Important for image scaling */
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Sidebar */
+aside.sidebar {
+  width: 300px;
+  padding: 20px;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+aside.sidebar .widget {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+aside.sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+aside.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside.sidebar li {
+  margin-bottom: 5px;
+}
+
+aside.sidebar a {
+  color: #333;
+  text-decoration: none;
+}
+
+.profile-image {
+  width: 100%;
+  border-radius: 50%; /* Circular profile image */
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Media Queries (Responsiveness) */
+@media (min-width: 768px) { /* Tablets and larger */
+  main {
+    flex-direction: row; /* Place blog posts and sidebar side-by-side */
+    justify-content: space-between;
+  }
+
+  .blog-post {
+    width: 70%; /* Adjust width for blog posts */
+  }
+
+  aside.sidebar {
+    width: 25%; /* Adjust width for sidebar */
+  }
+}
+
+@media (max-width: 600px) { /* Phones */
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+
+  header nav li {
+    margin-left: 0;
+    margin-bottom: 5px;
+  }
+
+  main {
+    flex-direction: column; /* Stack blog posts and sidebar */
+  }
+
+  .blog-post {
+    width: 100%;
+  }
+
+  aside.sidebar {
+    width: 100%;
+  }
+}
