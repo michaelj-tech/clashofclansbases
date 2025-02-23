@@ -1,185 +1,226 @@
-/* General Styles */
 body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  background-color: #f4f4f4;
-  color: #333;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+   
+    color: #333;
 }
 
-.container {
-  width: 80%; /* Adjust as needed */
-  margin: 0 auto;
-  padding: 20px;
+
+.container {  
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0px;
+
 }
 
-/* Header */
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 2rem 0;
+    padding-bottom: 100px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-header h1 {
-  margin: 0;
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    padding-top: 2rem;
 }
 
-header nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
+.hero::before {
+  content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
 }
 
-header nav li {
-  margin-left: 20px;
+.hero h2 {
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: white;
+
+}
+.hero p { 
+    font-size: 1.2rem;
+    color: white;
 }
 
-header nav a {
-  color: #fff;
-  text-decoration: none;
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+.gallery-grid img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+.gallery-grid img:hover {
+    transform: scale(1.05);
+
 }
 
-/* Main Content */
-main {
-  display: flex;
-  flex-direction: column; /* Stack blog posts vertically */
-  align-items: stretch; /* Stretch items to full width */
-  padding: 20px 0;
+
+.gallery-grid2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+.gallery-grid2 img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+.gallery-grid2 img:hover {
+    transform: scale(1.05);
 }
 
-.blog-post {
-  background-color: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
 
-.blog-post h2 a {
-  color: #333;
-  text-decoration: none;
-}
-
-.post-meta {
-  font-size: 0.9em;
-  color: #777;
-  margin-bottom: 10px;
-}
-
-.post-image {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;  /* Important for image scaling */
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-/* Sidebar */
-aside.sidebar {
-  width: 300px;
-  padding: 20px;
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
   background-color: #eee;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-aside.sidebar .widget {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 5px;
-}
-
-aside.sidebar h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
-}
-
-aside.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-aside.sidebar li {
-  margin-bottom: 5px;
-}
-
-aside.sidebar a {
-  color: #333;
-  text-decoration: none;
-}
-
-.profile-image {
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
   width: 100%;
-  border-radius: 50%; /* Circular profile image */
-  margin-bottom: 10px;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.8s;
 }
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+}
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+
+
+/* Sidebar specific style */
+aside{
+  margin-top: 30px;
+ border-radius: 5px;
+ line-height: 21px;
+
+}
+
+img:hover {
+ transform: scale(1.05);
+ transition: transform 0.3s ease-in-out;
+}
+
+/* Card container Style */
+ .card-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+/* Card Styles */
+.card {
+ border-radius: 8px;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+ padding: 5px;
+ text-align: left;
+}
+
+img{
+  height: 190px;
+  justify-content: center;
+}
+
+.card h3 {
+ margin-top: 0;
+  padding-left: 30px;
+}
+
+.card ul {
+ padding-left: 40px;
+ padding-right: 20px;
+}
+.card li {
+ margin-bottom: 5px;
+}
+
+
 
 /* Footer */
 footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: white;
+}
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .container{
+    padding: 0 10px;
+  }
+   .hero-content h1 {
+        font-size: 2.5rem;
+        padding-top: 1rem;
+    }
+    .hero h2 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .gallery h2 {
+        font-size: 1.8rem;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .card {
+     width: 100%;
+    flex: 1 1 100%; /* Adjusted for mobile */
+  }
 }
 
-/* Media Queries (Responsiveness) */
-@media (min-width: 768px) { /* Tablets and larger */
-  main {
-    flex-direction: row; /* Place blog posts and sidebar side-by-side */
-    justify-content: space-between;
-  }
 
-  .blog-post {
-    width: 70%; /* Adjust width for blog posts */
-  }
 
-  aside.sidebar {
-    width: 25%; /* Adjust width for sidebar */
-  }
-}
-
-@media (max-width: 600px) { /* Phones */
-  .container {
-    width: 95%;
-    padding: 10px;
-  }
-
-  header .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  header nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 10px;
-  }
-
-  header nav li {
-    margin-left: 0;
-    margin-bottom: 5px;
-  }
-
-  main {
-    flex-direction: column; /* Stack blog posts and sidebar */
-  }
-
-  .blog-post {
-    width: 100%;
-  }
-
-  aside.sidebar {
-    width: 100%;
-  }
-}
